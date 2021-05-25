@@ -10,6 +10,11 @@
       <TabComponent name="Third tab" :active="true">
         <p>Third tab content</p>
       </TabComponent>
+      <TabComponent
+          name="Fourth tab"
+          :ajax-source="true"
+          :fetch-source="fetchAjaxContent"
+      ></TabComponent>
     </TabsComponent>
   </div>
 </template>
@@ -24,6 +29,17 @@ export default {
     TabComponent,
     TabsComponent,
   },
+  methods: {
+    fetchAjaxContent() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({
+            data: '<h2>Ajax content</h2>'
+          })
+        }, 3000)
+      })
+    }
+  }
 }
 </script>
 
