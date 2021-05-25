@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import TabButton from './TabButton.vue'
-import TabComponent from './TabComponent.vue'
+import TabButton from './TabButton'
+import TabComponent from './TabComponent'
 
 export default {
   name: 'TabsComponent',
@@ -33,7 +33,11 @@ export default {
   methods: {
     handleTabButtonClick(tabName) {
       this.tabs.forEach((tab, index) => {
-        tab.activeInternal = tab.$props.name === tabName
+        if (tab.activeInternal) {
+          tab.activeInternal = !tab.activeInternal
+        } else {
+          tab.activeInternal = tab.$props.name === tabName
+        }
       })
     }
   }
