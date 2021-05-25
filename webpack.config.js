@@ -8,6 +8,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.dist.js'
   },
+  resolve: {
+    extensions: ['.js', '.vue']
+  },
   module: {
     rules: [
       {
